@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Budgetly</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav class="premium-nav">
+  <h1>Budgetly</h1>
+
+  <div class="nav-links">
+    <a class="active" href="home.html">Dashboard</a>
+    <a href="tracker.html">Tracker</a>
+    <a href="budget.html">Budget</a>
+    <a href="reports.html">Reports</a>
+    <a href="index.html">Profile</a>
+  </div>
+
+  <div class="nav-profile">
+    <div class="nav-avatar" id="navAvatar">👤</div>
+    <span id="navName">Student</span>
+  </div>
+</nav>
+
+<main class="dashboard-page">
+
+  <section class="welcome-banner">
+    <div>
+      <h2 id="welcomeName">Welcome Back 👋</h2>
+      <p>Monitor your spending, budget, and student finances in one premium dashboard.</p>
+    </div>
+
+  </section>
+
+  <section class="dashboard-cards">
+    <div class="dashboard-card">
+      <div>
+        <small>Total Balance</small>
+        <h3 id="totalBalance">₱0</h3>
+      </div>
+      <div class="card-icon">💳</div>
+    </div>
+
+    <div class="dashboard-card">
+      <div>
+        <small>Budget Left</small>
+        <h3 id="budgetLeft">₱0</h3>
+      </div>
+      <div class="card-icon gold">📊</div>
+    </div>
+
+    <div class="dashboard-card">
+      <div>
+        <small>Total Expenses</small>
+        <h3 id="totalExpenses">₱0</h3>
+      </div>
+      <div class="card-icon red">📈</div>
+    </div>
+  </section>
+
+  <section class="home-layout">
+
+    <div class="spending-landscape-card">
+      <div class="chart-header">
+        <div>
+          <h3>Spending Overview</h3>
+          <p>Your monthly expense distribution by category</p>
+        </div>
+
+        <button onclick="generateCharts()">Refresh</button>
+      </div>
+
+      <div class="spending-layout">
+        <div class="pie-side">
+          <canvas id="spendingPieChart"></canvas>
+        </div>
+
+        <div class="overview-side">
+          <div class="overview-item">
+            <div class="overview-left">
+              <span class="dot food"></span>
+              <p>Food</p>
+            </div>
+            <div class="overview-right">
+              <span id="foodPercent">0%</span>
+              <b id="foodAmount">₱0</b>
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-left">
+              <span class="dot transport"></span>
+              <p>Transport</p>
+            </div>
+            <div class="overview-right">
+              <span id="transportPercent">0%</span>
+              <b id="transportAmount">₱0</b>
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-left">
+              <span class="dot school"></span>
+              <p>School</p>
+            </div>
+            <div class="overview-right">
+              <span id="schoolPercent">0%</span>
+              <b id="schoolAmount">₱0</b>
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-left">
+              <span class="dot personal"></span>
+              <p>Personal</p>
+            </div>
+            <div class="overview-right">
+              <span id="personalPercent">0%</span>
+              <b id="personalAmount">₱0</b>
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-left">
+              <span class="dot others"></span>
+              <p>Others</p>
+            </div>
+            <div class="overview-right">
+              <span id="othersPercent">0%</span>
+              <b id="othersAmount">₱0</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="line-chart-card">
+      <div class="chart-header">
+        <div>
+          <h3>Expenses Over Time</h3>
+          <p>Track how your expenses grow per transaction</p>
+        </div>
+      </div>
+
+      <canvas id="lineChart"></canvas>
+    </div>
+
+  </section>
+
+  <section class="transactions-card">
+    <div class="transaction-header">
+
+  <div>
+    <h3>Recent Transactions</h3>
+    <p>Your latest student spending records</p>
+  </div>
+
+  <button onclick="toggleAllTransactions()" id="viewAllBtn">
+    View All
+  </button>
+
+</div>
+
+    <div id="transactionsList"></div>
+  </section>
+
+</main>
+
+    </select>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

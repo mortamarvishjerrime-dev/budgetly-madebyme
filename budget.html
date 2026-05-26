@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget | Budgetly</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="premium-nav">
+  <h1>Budgetly</h1>
+
+  <div class="nav-links">
+    <a href="home.html">Dashboard</a>
+    <a href="tracker.html">Tracker</a>
+    <a class="active" href="budget.html">Budget</a>
+    <a href="reports.html">Reports</a>
+    <a href="index.html">Profile</a>
+  </div>
+
+  <div class="nav-profile">
+    <div class="nav-avatar" id="navAvatar">👤</div>
+    <span id="navName">Student</span>
+  </div>
+</nav>
+
+<main class="budget-page">
+
+  <section class="budget-hero">
+    <div>
+      <h2>Budget Planner</h2>
+      <p>Set your monthly budget and monitor spending progress by category.</p>
+    </div>
+  </section>
+
+  <section class="budget-grid">
+    <div class="add-budget-card">
+
+  <div>
+    <h3>Add Budget</h3>
+    <p>
+      Add allowance or monthly budget
+      to update your financial dashboard.
+    </p>
+  </div>
+
+  <button onclick="openBudgetModal()">
+    + Add Budget
+  </button>
+
+</div>
+
+    <div class="budget-summary-card">
+      <div class="donut-wrap">
+        <div class="budget-donut">
+          <span id="budgetPercent">0%</span>
+          <small>Used</small>
+        </div>
+      </div>
+
+      <div class="summary-values">
+        <p>Budget <b id="summaryBudget">₱0</b></p>
+        <p>Total Expenses <b id="summaryExpenses">₱0</b></p>
+        <p>Budget Left <b id="summaryLeft">₱0</b></p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="category-budget-card">
+    <div class="budget-table-header">
+      <div>
+        <h3>Category Budget</h3>
+        <p>Automatically calculated from your tracker expenses.</p>
+      </div>
+    </div>
+
+    <div class="budget-table" id="budgetCategoryTable"></div>
+  </section>
+
+</main>
+<div class="budget-modal hidden" id="budgetModal">
+
+  <div class="budget-modal-content">
+
+    <div class="modal-top">
+
+      <h2>Add Budget</h2>
+
+      <button onclick="closeBudgetModal()">
+        ✕
+      </button>
+
+    </div>
+
+    <label>Period</label>
+
+    <select id="budgetPeriod">
+      <option>Monthly</option>
+      <option>Weekly</option>
+    </select>
+
+    <label>Budget Amount</label>
+
+    <input
+      id="budgetAmount"
+      type="number"
+      placeholder="Enter budget amount"
+    >
+
+    <button onclick="saveBudget()">
+      Save Budget
+    </button>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
