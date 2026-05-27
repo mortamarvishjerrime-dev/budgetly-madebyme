@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracker | Budgetly</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="premium-nav">
+  <h1>Budgetly</h1>
+
+  <div class="nav-links">
+    <a href="home.html">Dashboard</a>
+    <a class="active" href="tracker.html">Tracker</a>
+    <a href="budget.html">Budget</a>
+    <a href="reports.html">Reports</a>
+    <a href="index.html">Profile</a>
+  </div>
+
+  <div class="nav-profile">
+    <div class="nav-avatar" id="navAvatar">👤</div>
+    <span id="navName">Student</span>
+  </div>
+</nav>
+
+<main class="tracker-page">
+
+  <section class="tracker-hero">
+    <div>
+      <h2>Expense Tracker</h2>
+<p>
+  Record expenses, manage spending history, and keep your student budget organized with ease.
+</p>
+    </div>
+  </section>
+
+ <section class="tracker-grid">
+
+  <!-- LEFT SIDE -->
+  <section class="history-card">
+
+    <div class="history-header">
+
+      <div>
+        <h3>Expense Activity</h3>
+
+        <p>
+          Review, manage, and monitor all your recent spending transactions.
+        </p>
+      </div>
+
+      <input
+        id="searchExpense"
+        oninput="renderTrackerTable()"
+        type="text"
+        placeholder="Search transactions..."
+      >
+
+    </div>
+
+    <table class="expense-table">
+
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="expenseTableBody"></tbody>
+
+    </table>
+
+  </section>
+
+  <!-- RIGHT SIDE -->
+  <div class="add-expense-card">
+
+    <div class="card-top">
+      <div>
+        <h3>Add Expense</h3>
+
+        <p>
+          Record a new expense into your financial tracker.
+        </p>
+      </div>
+    </div>
+
+    <div class="tracker-form">
+
+      <div class="input-group">
+        <label>Amount</label>
+
+        <input
+          id="expenseAmount"
+          type="number"
+          placeholder="₱ 0.00"
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Category</label>
+
+        <select id="expenseCategory">
+          <option>Food</option>
+          <option>Transport</option>
+          <option>School</option>
+          <option>Personal</option>
+          <option>Others</option>
+        </select>
+      </div>
+
+      <div class="input-group full">
+        <label>Notes</label>
+
+        <input
+          id="expenseNote"
+          type="text"
+          placeholder="Enter transaction note..."
+        >
+      </div>
+
+    </div>
+
+<button type="button" id="expenseBtn">Add Expense</button>
+
+  </div>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

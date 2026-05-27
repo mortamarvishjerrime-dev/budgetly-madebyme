@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Budget | Budgetly</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="premium-nav">
+
+  <h1>Budgetly</h1>
+
+  <div class="nav-links">
+    <a href="home.html">Dashboard</a>
+    <a href="tracker.html">Tracker</a>
+    <a class="active" href="budget.html">Budget</a>
+    <a href="reports.html">Reports</a>
+    <a href="index.html">Profile</a>
+  </div>
+
+  <div class="nav-profile">
+    <div class="nav-avatar" id="navAvatar">👤</div>
+    <span id="navName">Student</span>
+  </div>
+
+</nav>
+
+<!-- MAIN -->
+<main class="budget-page">
+
+  <!-- HERO -->
+  <section class="budget-hero">
+
+    <div>
+
+      <h2>Budget Planner</h2>
+
+      <p>
+        Organize your allowance, manage spending categories,
+        and maintain better financial control with your premium budget workspace.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- TOP GRID -->
+  <section class="budget-grid">
+
+    <!-- ADD BUDGET -->
+ <div class="add-budget-card">
+
+  <div class="budget-card-header">
+
+    <div>
+      <span class="budget-pill">
+        Smart Budget Control
+      </span>
+
+      <h3>Add Budget</h3>
+
+      <p>
+        Add allowance or monthly budget to keep your
+        financial dashboard updated and organized.
+      </p>
+    </div>
+
+    <button
+      type="button"
+      class="main-budget-btn"
+      onclick="openBudgetModal()"
+    >
+      + Add Budget
+    </button>
+
+  </div>
+
+  <div class="budget-actions-row">
+
+    <div class="quick-budget-actions">
+
+      <button type="button" onclick="quickAddBudget(500)">
+        + ₱500
+      </button>
+
+      <button type="button" onclick="quickAddBudget(1000)">
+        + ₱1,000
+      </button>
+
+      <button type="button" onclick="quickAddBudget(5000)">
+        + ₱5,000
+      </button>
+
+    </div>
+
+    <button
+      type="button"
+      class="reset-budget-btn"
+      onclick="resetBudget()"
+    >
+      Reset Budget
+    </button>
+
+  </div>
+
+</div>
+
+    <!-- SUMMARY -->
+    <div class="budget-summary-card">
+
+      <div class="donut-wrap">
+
+        <div class="budget-donut">
+          <span id="budgetPercent">0%</span>
+          <small>Used</small>
+        </div>
+
+      </div>
+
+      <div class="summary-values">
+
+        <p>
+          Budget
+          <b id="summaryBudget">₱0</b>
+        </p>
+
+        <p>
+          Total Expenses
+          <b id="summaryExpenses">₱0</b>
+        </p>
+
+        <p>
+          Budget Left
+          <b id="summaryLeft">₱0</b>
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CATEGORY TABLE -->
+  <section class="category-budget-card">
+
+    <div class="budget-table-header">
+
+      <div>
+        <h3>Category Budget</h3>
+
+        <p>
+          Manage category budgets based on your selected needs
+          and spending priorities.
+        </p>
+      </div>
+
+    </div>
+
+    <div
+      class="budget-table"
+      id="budgetCategoryTable"
+    ></div>
+
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<div class="budget-modal hidden" id="budgetModal">
+
+  <div class="budget-modal-content">
+
+    <div class="modal-top">
+
+      <h2>Add Budget</h2>
+
+      <button
+        type="button"
+        onclick="closeBudgetModal()"
+      >
+        ✕
+      </button>
+
+    </div>
+
+    <label>Budget Duration</label>
+
+<select id="budgetPeriod">
+
+  <option value="Monthly">
+    Monthly Budget (resets every month)
+  </option>
+
+  <option value="Weekly">
+    Weekly Budget (resets every week)
+  </option>
+
+</select>
+
+<small class="input-helper">
+  Choose how long this budget should last.
+</small>
+
+    <label>Budget Amount</label>
+
+    <input
+      id="budgetAmount"
+      type="number"
+      placeholder="Enter budget amount"
+    >
+
+    <label>Choose Category</label>
+
+    <select id="budgetCategory">
+
+      <option value="Food">Food</option>
+      <option value="Transport">Transport</option>
+      <option value="School">School</option>
+      <option value="Personal">Personal</option>
+      <option value="Others">Others</option>
+
+    </select>
+
+    <button
+      type="button"
+      onclick="saveBudget()"
+    >
+      Save Budget
+    </button>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
